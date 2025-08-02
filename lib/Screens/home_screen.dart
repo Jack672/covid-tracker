@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:covid_tracker/Model/coviddataall.dart';
+import 'package:covid_tracker/Screens/countries_list.dart';
 import 'package:covid_tracker/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -39,7 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
           future: getAllData(),
           builder: (context, snapshot) {
             return (syncCall)
-                ? Expanded(child: SpinKitCircle(color: Colors.white,))
+                ? Row(
+                  children: [
+                    Expanded(child: SpinKitCircle(color: Colors.white)),
+                  ],
+                )
                 : Column(
                   children: [
                     PieChart(
@@ -102,7 +107,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                     Expanded(child: Container()),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => CountriesList()),
+                        );
+                      },
                       child: Container(
                         width: MediaQuery.of(context).size.width * 0.85,
                         height: MediaQuery.of(context).size.height * 0.05,

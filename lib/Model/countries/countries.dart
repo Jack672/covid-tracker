@@ -1,6 +1,6 @@
 import 'country_info.dart';
 
-class Coviddatacountries {
+class Countries {
 	int? updated;
 	String? country;
 	CountryInfo? countryInfo;
@@ -25,7 +25,7 @@ class Coviddatacountries {
 	double? recoveredPerOneMillion;
 	int? criticalPerOneMillion;
 
-	Coviddatacountries({
+	Countries({
 		this.updated, 
 		this.country, 
 		this.countryInfo, 
@@ -51,37 +51,33 @@ class Coviddatacountries {
 		this.criticalPerOneMillion, 
 	});
 
-	factory Coviddatacountries.fromJson(Map<String, dynamic> json) {
-		return Coviddatacountries(
-			updated: json['updated'] as int?,
-			country: json['country'] as String?,
-			countryInfo: json['countryInfo'] == null
+	factory Countries.fromJson(Map<String, dynamic> json) => Countries(
+				updated: json['updated'] as int?,
+				country: json['country'] as String?,
+				countryInfo: json['countryInfo'] == null
 						? null
 						: CountryInfo.fromJson(json['countryInfo'] as Map<String, dynamic>),
-			cases: json['cases'] as int?,
-			todayCases: json['todayCases'] as int?,
-			deaths: json['deaths'] as int?,
-			todayDeaths: json['todayDeaths'] as int?,
-			recovered: json['recovered'] as int?,
-			todayRecovered: json['todayRecovered'] as int?,
-			active: json['active'] as int?,
-			critical: json['critical'] as int?,
-			casesPerOneMillion: json['casesPerOneMillion'] as int?,
-			deathsPerOneMillion: json['deathsPerOneMillion'] as int?,
-			tests: json['tests'] as int?,
-			testsPerOneMillion: json['testsPerOneMillion'] as int?,
-			population: json['population'] as int?,
-			continent: json['continent'] as String?,
-			oneCasePerPeople: json['oneCasePerPeople'] as int?,
-			oneDeathPerPeople: json['oneDeathPerPeople'] as int?,
-			oneTestPerPeople: json['oneTestPerPeople'] as int?,
-			activePerOneMillion: (json['activePerOneMillion'] as num?)?.toDouble(),
-			recoveredPerOneMillion: (json['recoveredPerOneMillion'] as num?)?.toDouble(),
-			criticalPerOneMillion: json['criticalPerOneMillion'] as int?,
-		);
-	}
-
-
+				cases: json['cases'] as int?,
+				todayCases: json['todayCases'] as int?,
+				deaths: json['deaths'] as int?,
+				todayDeaths: json['todayDeaths'] as int?,
+				recovered: json['recovered'] as int?,
+				todayRecovered: json['todayRecovered'] as int?,
+				active: json['active'] as int?,
+				critical: json['critical'] as int?,
+				casesPerOneMillion: json['casesPerOneMillion'] as int?,
+				deathsPerOneMillion: json['deathsPerOneMillion'] as int?,
+				tests: json['tests'] as int?,
+				testsPerOneMillion: json['testsPerOneMillion'] as int?,
+				population: json['population'] as int?,
+				continent: json['continent'] as String?,
+				oneCasePerPeople: json['oneCasePerPeople'] as int?,
+				oneDeathPerPeople: json['oneDeathPerPeople'] as int?,
+				oneTestPerPeople: json['oneTestPerPeople'] as int?,
+				activePerOneMillion: (json['activePerOneMillion'] as num?)?.toDouble(),
+				recoveredPerOneMillion: (json['recoveredPerOneMillion'] as num?)?.toDouble(),
+				criticalPerOneMillion: json['criticalPerOneMillion'] as int?,
+			);
 
 	Map<String, dynamic> toJson() => {
 				'updated': updated,
